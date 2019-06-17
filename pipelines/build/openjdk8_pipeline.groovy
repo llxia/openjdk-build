@@ -23,7 +23,7 @@ def buildConfigurations = [
                         corretto: 'build-macstadium-macos1010-1',
                         openj9  : 'build-macstadium-macos1010-2'
                 ],
-                test                : ['openjdktest', 'systemtest']
+                test                : ['sanity.openjdk', 'sanity.system']
         ],
 
         x64MacXL      : [

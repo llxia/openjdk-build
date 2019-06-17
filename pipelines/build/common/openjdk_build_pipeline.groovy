@@ -216,17 +216,12 @@ class Build {
             arch = "x86-64"
         }
 
-        def os = TARGET_OS
-        if (os == "mac") {
-            os = "macos"
-        }
-
-        def jobName = "openjdk${number}_${variant}_${testType}_${arch}_${os}"
+        def jobName = "openjdk${number}_${variant}_${testType}_${arch}_${TARGET_OS}"
 
         if (ADDITIONAL_FILE_NAME_TAG) {
             switch (ADDITIONAL_FILE_NAME_TAG) {
-                case ~/.*linuxXL.*/: jobName += "_linuxXL"; break
-                case ~/.*macosXL.*/: jobName += "_macosXL"; break
+                case ~/.*linuxXL.*/: jobName += "_xl"; break
+                case ~/.*macosXL.*/: jobName += "_xl"; break
             }
         }
         return "${jobName}"
